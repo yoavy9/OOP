@@ -16,8 +16,10 @@ public class SubImgCharMatcher {
     }
 
     public void addChar(char c){
-        double brightness =
-        asciiHashMap.addChar(c);
+        double brightness = CharConverter.calcBrightness(c,
+                asciiHashMap.getMinBrightness(),
+                asciiHashMap.getMaxBrightness());
+        asciiHashMap.addChar(brightness, c);
     }
 
     public void removeChar(char c){

@@ -3,7 +3,7 @@ package ascii_art;
 import java.util.HashMap;
 
 public class AsciiOrderLinkedListMap {
-    private final HashMap<Double, AsciiOrderLinkedList> map;
+    private HashMap<Double, AsciiOrderLinkedList> map;
     private double maxBrightness = 0;
     private double minBrightness = 1;
 
@@ -34,6 +34,15 @@ public class AsciiOrderLinkedListMap {
         return map.get(closestKey).getFirst();
     }
 
+    public void removeChar(char c){
+        for (double k : map.keySet()) {
+            AsciiOrderLinkedList list = map.get(k);
+            if (list.contains(c)) {
+                list.remove(c);
+            }
+        }
+    }
+
     public double getMaxBrightness() {
         return maxBrightness;
     }
@@ -41,6 +50,8 @@ public class AsciiOrderLinkedListMap {
     public double getMinBrightness() {
         return minBrightness;
     }
+
+
 
     private double calculateClosestKey(double key) {
         double closestKey = 0;

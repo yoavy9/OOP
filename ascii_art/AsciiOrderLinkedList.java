@@ -27,6 +27,14 @@ public class AsciiOrderLinkedList {
         iterator.add(value);
     }
 
+    public boolean contains(char c){
+        return list.contains(c);
+    }
+
+    public void remove(char c){
+        list.remove(c);
+    }
+
     // todo: remove printer
     public void printList() {
         for (Character c : list) {
