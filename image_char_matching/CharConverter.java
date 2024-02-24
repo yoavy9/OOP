@@ -17,6 +17,8 @@ public class CharConverter {
     private static final String FONT_NAME = "Courier New";
     public static final int DEFAULT_PIXEL_RESOLUTION = 16;
 
+
+
     /**
      * Renders a given character, according to how it looks in the font specified in the
      * constructor, to a square black&white image (2D array of booleans),
@@ -31,6 +33,46 @@ public class CharConverter {
             }
         }
         return matrix;
+    }
+
+
+    /**
+     * Calculates the brightness of a character based on its representation
+     * in a boolean matrix and maps it to a value between the minimum and maximum
+     * brightness defined in an AsciiOrderLinkedListMap.
+     * @param c The character to calculate the brightness for.
+     * @param asciiMap The map containing the minimum and maximum brightness values.
+     * @return The normalized brightness value of the character.
+     */
+     public static double calcBrightness(char c, AsciiOrderLinkedListMap asciiMap){
+        double initialBrightness = countNumTrue(convertToBoolArray(c));
+        double minBrightness = asciiMap.getminBrightness();
+        double maxBrightness = asciiMap.getmaxBrightness();
+        double newCharBrightness = (initialBrightness-minBrightness)/
+                (maxBrightness-minBrightness);
+        return Math.abs(newCharBrightness);
+
+
+
+     }
+
+    /**
+     * Counts the number of 'true' values in a 2D boolean array, representing
+     * the pixelated version of a character, and normalizes it based on a predefined
+     * pixel resolution to calculate the character's brightness.
+     * @param matrix The 2D boolean array representing the character.
+     * @return The normalized count of 'true' values, representing the character's brightness.
+     */
+    private static double countNumTrue(boolean[][] matrix){
+        int count =0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if(matrix[i][j]){
+                    count++;
+                }
+            }
+        }
+        return (double)count/DEFAULT_PIXEL_RESOLUTION;
     }
 
     private static BufferedImage getBufferedImage(char c, String fontName, int pixelsPerRow) {

@@ -2,7 +2,7 @@ package image_char_matching;
 
 public class SubImgCharMatcher {
 
-    private AsciiHshmap asciiHshmap;
+    private AsciiOrderLinkedListMap asciiHshmap;
     private final char[] charset;
 
     public SubImgCharMatcher(char[] charset){ //hashmap
