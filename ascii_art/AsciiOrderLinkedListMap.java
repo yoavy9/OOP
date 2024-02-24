@@ -12,7 +12,7 @@ public class AsciiOrderLinkedListMap {
     }
 
     // Method to insert a character into the AsciiOrderLinkedList associated with the given key
-    public void put(double key, char value) {
+    public void addChar(double key, char value) {
         // Check if the map already contains a list for the given key
         AsciiOrderLinkedList list = map.computeIfAbsent(key, k -> new AsciiOrderLinkedList());
 
