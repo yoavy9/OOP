@@ -5,11 +5,11 @@ public class Shell {
         AsciiOrderLinkedListMap map = new AsciiOrderLinkedListMap();
 
         // Example usage
-        map.put(0.6, 'c');
-        map.put(0.111, 'a');
-        map.put(0.5, 'b');
-        map.put(0.8, 'e');
-        map.put(0.6, 'd');
+        map.addChar(0.6, 'c');
+        map.addChar(0.111, 'a');
+        map.addChar(0.5, 'b');
+        map.addChar(0.8, 'e');
+        map.addChar(0.6, 'd');
 
         System.out.println("List for key 1:");
         map.printList(1); // Should print [a, b, c]
