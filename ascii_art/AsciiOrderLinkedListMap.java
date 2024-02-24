@@ -56,6 +56,7 @@ public class AsciiOrderLinkedListMap {
     private double calculateClosestKey(double key) {
         double closestKey = 0;
         double minDifference = Double.MAX_VALUE;
+        // todo: if two keys are equally close, the smaller one is chosen
         for (double k : map.keySet()) {
             double difference = Math.abs(k - key);
             if (difference < minDifference) {
