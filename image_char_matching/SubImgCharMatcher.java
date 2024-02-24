@@ -1,24 +1,27 @@
 package image_char_matching;
 
+import ascii_art.AsciiOrderLinkedListMap;
+
 public class SubImgCharMatcher {
 
-    private AsciiOrderLinkedListMap asciiHshmap;
-    private final char[] charset;
+    private AsciiOrderLinkedListMap asciiHashMap;
+    private final char[] charSet;
 
     public SubImgCharMatcher(char[] charset){ //hashmap
-        this.charset = charset;
+        this.charSet = charset;
     }
 
     public char getCharByImageBrightness(double brightness){
-        return asciiHshmap.getChar(brightness);
+        return asciiHashMap.getChar(brightness);
     }
 
     public void addChar(char c){
-        asciiHshmap.addChar(c);
+        double brightness =
+        asciiHashMap.addChar(c);
     }
 
     public void removeChar(char c){
-        asciiHshmap.removeChar(c);
+        asciiHashMap.removeChar(c);
     }
 
 }

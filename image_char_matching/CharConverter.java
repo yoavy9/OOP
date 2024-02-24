@@ -51,9 +51,6 @@ public class CharConverter {
         double newCharBrightness = (initialBrightness-minBrightness)/
                 (maxBrightness-minBrightness);
         return Math.abs(newCharBrightness);
-
-
-
      }
 
     /**
