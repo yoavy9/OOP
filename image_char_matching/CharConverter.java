@@ -41,19 +41,13 @@ public class CharConverter {
      * in a boolean matrix and maps it to a value between the minimum and maximum
      * brightness defined in an AsciiOrderLinkedListMap.
      * @param c The character to calculate the brightness for.
-     * @param asciiMap The map containing the minimum and maximum brightness values.
+     * @param max,min The max and min values in map.
      * @return The normalized brightness value of the character.
      */
-     public static double calcBrightness(char c, AsciiOrderLinkedListMap asciiMap){
+     public static double calcBrightness(char c, double min, double max){
         double initialBrightness = countNumTrue(convertToBoolArray(c));
-        double minBrightness = asciiMap.getminBrightness();
-        double maxBrightness = asciiMap.getmaxBrightness();
-        double newCharBrightness = (initialBrightness-minBrightness)/
-                (maxBrightness-minBrightness);
+        double newCharBrightness = (initialBrightness-min)/(max-min);
         return Math.abs(newCharBrightness);
-
-
-
      }
 
     /**
